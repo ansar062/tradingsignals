@@ -69,9 +69,9 @@ class _StartUpScreenState extends State<StartUpScreen> {
   @override
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      backgroundColor: Colors.white,
-      child: ListView(
+    return Scaffold(
+      //backgroundColor: Colors.white,
+      body: ListView(
         children: [
           SingleChildScrollView(
             child: Container(
