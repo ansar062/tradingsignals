@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'Trading Signals',
-      home: SignalsScreen(),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

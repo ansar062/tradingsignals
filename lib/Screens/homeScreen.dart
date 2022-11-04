@@ -24,15 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             SizedBox(
               width: screenWidth,
-              height: screenHeight * 0.1,
+              height: screenHeight * 0.12,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Item(context, Colors.green, 'assets/dollar.png', 'Subscribe'),
-                  Item(context, Colors.amber, 'assets/question.png', 'FAQ'),
-                  Item(context, Colors.blue, 'assets/help.png', 'Help'),
-                  Item(context, Colors.blue, 'assets/facebook.png', 'Facebook'),
-                  Item(context, Colors.white, 'assets/yt.png', 'YouTube'),
+                  Item(context, 'assets/dollar.png', 'Subscribe', screenWidth, screenHeight),
+                  Item(context, 'assets/signals.png', 'TSMT5', screenWidth, screenHeight),
+                  Item(context, 'assets/faq.png', 'FAQ', screenWidth, screenHeight),
+                  Item(context, 'assets/help.png', 'Help', screenWidth, screenHeight),
+                  Item(context, 'assets/rate.png', 'Rate', screenWidth, screenHeight),
+                  Item(context, 'assets/tel2.png', 'Telegram', screenWidth, screenHeight),
+                  Item(context, 'assets/4rexteam.png', '4rex Team', screenWidth, screenHeight),
+                  Item(context, 'assets/facebook.png', 'Facebook', screenWidth, screenHeight),
+                  Item(context, 'assets/yt.png', 'YouTube', screenWidth, screenHeight),
                 ],
               ),
             ),
@@ -545,7 +549,7 @@ Widget profilepic(BuildContext context, double radius) {
   );
 }
 
-Widget Item(BuildContext context, Color color, String path, String name) {
+Widget Item(BuildContext context, String path, String name, double screenWidth, double screenHeight) {
   return Container(
     padding: EdgeInsets.symmetric(
       horizontal: 10,
@@ -553,17 +557,16 @@ Widget Item(BuildContext context, Color color, String path, String name) {
     child: Column(
       children: [
         Container(
-          height: MediaQuery.of(context).size.height * 0.07,
-          width: MediaQuery.of(context).size.width * 0.15,
+          height: screenHeight * 0.07,
+          width: screenWidth * 0.15,
           decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(20)),
-          child: Container(
-              padding: EdgeInsets.all(5),
-              child: Image.asset(
-                path,
-                height: 10,
-                width: 30,
-              )),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              image: DecorationImage(
+                  fit: BoxFit.fitHeight,
+                  image: AssetImage(
+                    path,
+                  ))),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
