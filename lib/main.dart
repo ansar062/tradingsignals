@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:tradingsignals/Screens/homeScreen.dart';
+import 'package:tradingsignals/Screens/shopScreen.dart';
 import 'package:tradingsignals/Screens/signalsScreen.dart';
-import 'package:tradingsignals/Screens/startupscreen.dart';
+import 'package:tradingsignals/Screens/tipsScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,14 +12,12 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
       title: 'Flutter Demo',
       
-      home: StartUpScreen(),
+      home:SignalsScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

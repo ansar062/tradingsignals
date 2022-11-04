@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextFieldInput extends StatelessWidget {
@@ -19,15 +20,16 @@ class TextFieldInput extends StatelessWidget {
       borderSide: Divider.createBorderSide(context, color: Colors.grey),
     );
 
-    return TextField(
+    return CupertinoTextField(
       controller: textEditingController,
-      decoration: InputDecoration(
-        hintText: hintText,
-        border: inputBorder,
-        focusedBorder: inputBorder,
-        enabledBorder: inputBorder,
-        filled: false,
-        contentPadding: const EdgeInsets.all(8),
+      
+      decoration: BoxDecoration(
+        //hintText: hintText,
+        
+        //focusedBorder: inputBorder,
+        // enabledBorder: inputBorder,
+        // filled: false,
+        // contentPadding: const EdgeInsets.all(8),
       ),
       keyboardType: textInputType,
       obscureText: isPass,

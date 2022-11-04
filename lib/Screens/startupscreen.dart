@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tradingsignals/Widgets/contactus.dart';
 import 'package:tradingsignals/Widgets/loginwidget.dart';
 import 'package:tradingsignals/Widgets/reset.dart';
 import 'package:tradingsignals/Widgets/signup.dart';
@@ -66,8 +67,9 @@ class _StartUpScreenState extends State<StartUpScreen> {
   @override
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
+    return CupertinoPageScaffold(
+      backgroundColor: Colors.white,
+      child: ListView(
         children: [
           SingleChildScrollView(
             child: Container(
@@ -128,158 +130,160 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
                                   ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.width,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.05,
-                                    child: ListView(
-                                      scrollDirection: Axis.horizontal,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            Checkbox(
-                                              value: isSelected[0],
-                                              onChanged: (bool? val) {
-                                                setState(() {
-                                                  isSelected[0] = val!;
-                                                  if (val == true) {
-                                                    isSelected[1] = false;
-                                                    isSelected[2] = false;
-                                                    isSelected[3] = false;
-                                                    isSelected[4] = false;
-                                                    isSelected[5] = false;
-                                                  }
-                                                });
-                                              },
-                                              activeColor: Colors.green,
-                                              side: BorderSide(
-                                                  color: Colors.green,
-                                                  width: 2),
-                                            ),
-                                            Text('English')
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Checkbox(
-                                              value: isSelected[1],
-                                              onChanged: (bool? val) {
-                                                setState(() {
-                                                  isSelected[1] = val!;
-                                                  if (val == true) {
-                                                    isSelected[0] = false;
-                                                    isSelected[2] = false;
-                                                    isSelected[3] = false;
-                                                    isSelected[4] = false;
-                                                    isSelected[5] = false;
-                                                  }
-                                                });
-                                              },
-                                              activeColor: Colors.green,
-                                              side: BorderSide(
-                                                  color: Colors.green,
-                                                  width: 2),
-                                            ),
-                                            Text('Spanish')
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Checkbox(
-                                              value: isSelected[2],
-                                              onChanged: (bool? val) {
-                                                setState(() {
-                                                  isSelected[2] = val!;
-                                                  if (val == true) {
-                                                    isSelected[1] = false;
-                                                    isSelected[0] = false;
-                                                    isSelected[3] = false;
-                                                    isSelected[4] = false;
-                                                    isSelected[5] = false;
-                                                  }
-                                                });
-                                              },
-                                              activeColor: Colors.green,
-                                              side: BorderSide(
-                                                  color: Colors.green,
-                                                  width: 2),
-                                            ),
-                                            Text('French')
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Checkbox(
-                                              activeColor: Colors.green,
-                                              side: BorderSide(
-                                                  color: Colors.green,
-                                                  width: 2),
-                                              value: isSelected[3],
-                                              onChanged: (bool? val) {
-                                                setState(() {
-                                                  isSelected[3] = val!;
-                                                  if (val == true) {
-                                                    isSelected[1] = false;
-                                                    isSelected[2] = false;
-                                                    isSelected[0] = false;
-                                                    isSelected[4] = false;
-                                                    isSelected[5] = false;
-                                                  }
-                                                });
-                                              },
-                                            ),
-                                            Text('Hindi')
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Checkbox(
-                                              activeColor: Colors.green,
-                                              side: BorderSide(
-                                                  color: Colors.green,
-                                                  width: 2),
-                                              value: isSelected[4],
-                                              onChanged: (bool? val) {
-                                                setState(() {
-                                                  isSelected[4] = val!;
-                                                  if (val == true) {
-                                                    isSelected[1] = false;
-                                                    isSelected[2] = false;
-                                                    isSelected[3] = false;
-                                                    isSelected[0] = false;
-                                                    isSelected[5] = false;
-                                                  }
-                                                });
-                                              },
-                                            ),
-                                            Text('Portuguese')
-                                          ],
-                                        ),
-                                        Row(
-                                          children: [
-                                            Checkbox(
-                                              activeColor: Colors.green,
-                                              side: BorderSide(
-                                                  color: Colors.green,
-                                                  width: 2),
-                                              value: isSelected[5],
-                                              onChanged: (bool? val) {
-                                                setState(() {
-                                                  isSelected[5] = val!;
-                                                  if (val == true) {
-                                                    isSelected[1] = false;
-                                                    isSelected[2] = false;
-                                                    isSelected[3] = false;
-                                                    isSelected[4] = false;
-                                                    isSelected[0] = false;
-                                                  }
-                                                });
-                                              },
-                                            ),
-                                            Text('Arabic')
-                                          ],
-                                        ),
-                                      ],
+                                  Card(
+                                    child: SizedBox(
+                                      width: MediaQuery.of(context).size.width,
+                                      height: MediaQuery.of(context).size.height *
+                                          0.05,
+                                      child: ListView(
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Checkbox(
+                                                value: isSelected[0],
+                                                onChanged: (bool? val) {
+                                                  setState(() {
+                                                    isSelected[0] = val!;
+                                                    if (val == true) {
+                                                      isSelected[1] = false;
+                                                      isSelected[2] = false;
+                                                      isSelected[3] = false;
+                                                      isSelected[4] = false;
+                                                      isSelected[5] = false;
+                                                    }
+                                                  });
+                                                },
+                                                activeColor: Colors.green,
+                                                side: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 2),
+                                              ),
+                                              Text('English')
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Checkbox(
+                                                value: isSelected[1],
+                                                onChanged: (bool? val) {
+                                                  setState(() {
+                                                    isSelected[1] = val!;
+                                                    if (val == true) {
+                                                      isSelected[0] = false;
+                                                      isSelected[2] = false;
+                                                      isSelected[3] = false;
+                                                      isSelected[4] = false;
+                                                      isSelected[5] = false;
+                                                    }
+                                                  });
+                                                },
+                                                activeColor: Colors.green,
+                                                side: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 2),
+                                              ),
+                                              Text('Spanish')
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Checkbox(
+                                                value: isSelected[2],
+                                                onChanged: (bool? val) {
+                                                  setState(() {
+                                                    isSelected[2] = val!;
+                                                    if (val == true) {
+                                                      isSelected[1] = false;
+                                                      isSelected[0] = false;
+                                                      isSelected[3] = false;
+                                                      isSelected[4] = false;
+                                                      isSelected[5] = false;
+                                                    }
+                                                  });
+                                                },
+                                                activeColor: Colors.green,
+                                                side: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 2),
+                                              ),
+                                              Text('French')
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Checkbox(
+                                                activeColor: Colors.green,
+                                                side: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 2),
+                                                value: isSelected[3],
+                                                onChanged: (bool? val) {
+                                                  setState(() {
+                                                    isSelected[3] = val!;
+                                                    if (val == true) {
+                                                      isSelected[1] = false;
+                                                      isSelected[2] = false;
+                                                      isSelected[0] = false;
+                                                      isSelected[4] = false;
+                                                      isSelected[5] = false;
+                                                    }
+                                                  });
+                                                },
+                                              ),
+                                              Text('Hindi')
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Checkbox(
+                                                activeColor: Colors.green,
+                                                side: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 2),
+                                                value: isSelected[4],
+                                                onChanged: (bool? val) {
+                                                  setState(() {
+                                                    isSelected[4] = val!;
+                                                    if (val == true) {
+                                                      isSelected[1] = false;
+                                                      isSelected[2] = false;
+                                                      isSelected[3] = false;
+                                                      isSelected[0] = false;
+                                                      isSelected[5] = false;
+                                                    }
+                                                  });
+                                                },
+                                              ),
+                                              Text('Portuguese')
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              Checkbox(
+                                                activeColor: Colors.green,
+                                                side: BorderSide(
+                                                    color: Colors.green,
+                                                    width: 2),
+                                                value: isSelected[5],
+                                                onChanged: (bool? val) {
+                                                  setState(() {
+                                                    isSelected[5] = val!;
+                                                    if (val == true) {
+                                                      isSelected[1] = false;
+                                                      isSelected[2] = false;
+                                                      isSelected[3] = false;
+                                                      isSelected[4] = false;
+                                                      isSelected[0] = false;
+                                                    }
+                                                  });
+                                                },
+                                              ),
+                                              Text('Arabic')
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   SizedBox(
@@ -354,91 +358,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   SizedBox(
                                     height: 20,
                                   ),
-                                  Center(
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.06,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.13,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.2),
-                                                spreadRadius: 5,
-                                                blurRadius: 3,
-                                                offset: Offset(0,
-                                                    5), // changes position of shadow
-                                              ),
-                                            ],
-                                          ),
-                                          child: Container(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.06,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.12,
-                                            child:
-                                                Image.asset('assets/logo.png'),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Container(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.06,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.13,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(3),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.2),
-                                                spreadRadius: 5,
-                                                blurRadius: 3,
-                                                offset: Offset(0,
-                                                    5), // changes position of shadow
-                                              ),
-                                            ],
-                                          ),
-                                          child: Container(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.03,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.6,
-                                            child: Image.asset(
-                                                'assets/telegram.png'),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
+                                 contactus(context, false),
                                   //
                                   SizedBox(
                                     height: 20,
