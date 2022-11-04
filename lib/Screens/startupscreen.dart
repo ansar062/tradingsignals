@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:tradingsignals/Widgets/contactus.dart';
 import 'package:tradingsignals/Widgets/loginwidget.dart';
 import 'package:tradingsignals/Widgets/reset.dart';
@@ -119,7 +121,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   Divider(),
                                   Container(
                                     child: Text(
-                                        'Forex, Cryptocurrency, Commondity and Indices Signals app, please login to continue.'),
+                                        'Forex Cryptocurrency Commondity and Indices Signals app please login to continue'.tr()),
                                   ),
                                   SizedBox(
                                     height: 30,
@@ -129,6 +131,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
+<<<<<<< HEAD
                                   ),
                                   Card(
                                     child: SizedBox(
@@ -284,6 +287,174 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                           ),
                                         ],
                                       ),
+=======
+                                  ).tr(),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.05,
+                                    child: ListView(
+                                      scrollDirection: Axis.horizontal,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              value: isSelected[0],
+                                              onChanged: (bool? val) {
+                                                setState(() {
+                                                  context
+                                                      .setLocale(Locale('en'));
+                                                  isSelected[0] = val!;
+                                                  if (val == true) {
+                                                    isSelected[1] = false;
+                                                    isSelected[2] = false;
+                                                    isSelected[3] = false;
+                                                    isSelected[4] = false;
+                                                    isSelected[5] = false;
+                                                  }
+                                                });
+                                              },
+                                              activeColor: Colors.green,
+                                              side: BorderSide(
+                                                  color: Colors.green,
+                                                  width: 2),
+                                            ),
+                                            Text('English')
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              value: isSelected[1],
+                                              onChanged: (bool? val) {
+                                                setState(() {
+                                                  context
+                                                      .setLocale(Locale('es'));
+                                                  isSelected[1] = val!;
+                                                  if (val == true) {
+                                                    isSelected[0] = false;
+                                                    isSelected[2] = false;
+                                                    isSelected[3] = false;
+                                                    isSelected[4] = false;
+                                                    isSelected[5] = false;
+                                                  }
+                                                });
+                                              },
+                                              activeColor: Colors.green,
+                                              side: BorderSide(
+                                                  color: Colors.green,
+                                                  width: 2),
+                                            ),
+                                            Text('Spanish')
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              value: isSelected[2],
+                                              onChanged: (bool? val) {
+                                                setState(() {
+                                                  context
+                                                      .setLocale(Locale('fr'));
+                                                  isSelected[2] = val!;
+                                                  if (val == true) {
+                                                    isSelected[1] = false;
+                                                    isSelected[0] = false;
+                                                    isSelected[3] = false;
+                                                    isSelected[4] = false;
+                                                    isSelected[5] = false;
+                                                  }
+                                                });
+                                              },
+                                              activeColor: Colors.green,
+                                              side: BorderSide(
+                                                  color: Colors.green,
+                                                  width: 2),
+                                            ),
+                                            Text('French')
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              activeColor: Colors.green,
+                                              side: BorderSide(
+                                                  color: Colors.green,
+                                                  width: 2),
+                                              value: isSelected[3],
+                                              onChanged: (bool? val) {
+                                                context
+                                                      .setLocale(Locale('hi'));
+                                                setState(() {
+
+                                                  isSelected[3] = val!;
+                                                  if (val == true) {
+                                                    isSelected[1] = false;
+                                                    isSelected[2] = false;
+                                                    isSelected[0] = false;
+                                                    isSelected[4] = false;
+                                                    isSelected[5] = false;
+                                                  }
+                                                });
+                                              },
+                                            ),
+                                            Text('Hindi')
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              activeColor: Colors.green,
+                                              side: BorderSide(
+                                                  color: Colors.green,
+                                                  width: 2),
+                                              value: isSelected[4],
+                                              onChanged: (bool? val) {
+                                                setState(() {
+                                                  context
+                                                      .setLocale(Locale('pt'));
+                                                  isSelected[4] = val!;
+                                                  if (val == true) {
+                                                    isSelected[1] = false;
+                                                    isSelected[2] = false;
+                                                    isSelected[3] = false;
+                                                    isSelected[0] = false;
+                                                    isSelected[5] = false;
+                                                  }
+                                                });
+                                              },
+                                            ),
+                                            Text('Portuguese')
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Checkbox(
+                                              activeColor: Colors.green,
+                                              side: BorderSide(
+                                                  color: Colors.green,
+                                                  width: 2),
+                                              value: isSelected[5],
+                                              onChanged: (bool? val) {
+                                                setState(() {
+                                                  context
+                                                      .setLocale(Locale('ar'));
+                                                  isSelected[5] = val!;
+                                                  if (val == true) {
+                                                    isSelected[1] = false;
+                                                    isSelected[2] = false;
+                                                    isSelected[3] = false;
+                                                    isSelected[4] = false;
+                                                    isSelected[0] = false;
+                                                  }
+                                                });
+                                              },
+                                            ),
+                                            Text('Arabic')
+                                          ],
+                                        ),
+                                      ],
+>>>>>>> f1d4d20c959f4d90f88983652f4c95829cd61c63
                                     ),
                                   ),
                                   SizedBox(
@@ -349,7 +520,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   Center(
                                     child: Container(
                                       child: Text(
-                                        'Failing to login? contact us now.',
+                                        
+                                        'failing_to_login_contact_us_now'.tr(),
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -364,7 +536,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                     height: 20,
                                   ),
                                   Container(
-                                    child: Text('Installation and Login Guide'),
+                                    child: Text('installation_and_login_guide'.tr()),
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -381,7 +553,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                             BorderRadius.circular(30)),
                                     child: Center(
                                         child: Text(
-                                      'WATCH',
+                                      "watch".tr(),
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18),
                                     )),

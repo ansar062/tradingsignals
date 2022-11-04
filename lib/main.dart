@@ -1,13 +1,37 @@
+import 'package:easy_localization/easy_localization.dart';
 
+<<<<<<< HEAD
 
 import 'package:flutter/cupertino.dart';
 import 'package:tradingsignals/Screens/homeScreen.dart';
 import 'package:tradingsignals/Screens/shopScreen.dart';
 import 'package:tradingsignals/Screens/signalsScreen.dart';
 import 'package:tradingsignals/Screens/tipsScreen.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:tradingsignals/Screens/startupscreen.dart';
+>>>>>>> f1d4d20c959f4d90f88983652f4c95829cd61c63
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await EasyLocalization.ensureInitialized();
+
+  runApp(EasyLocalization(
+      fallbackLocale: Locale('en'),
+      saveLocale: false,
+      useOnlyLangCode: true,
+      supportedLocales: [
+        Locale('en',''),
+        Locale('ar',''),
+        Locale('es',''),
+        Locale('fr',''),
+        Locale('hi',''),
+        Locale('pt','')
+      ],
+      path: 'assets/translations/',
+      
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +42,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       
       home:SignalsScreen(),
+======
+    return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
+      title: 'Trading Signals',
+      home: StartUpScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
