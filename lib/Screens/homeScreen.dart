@@ -2,6 +2,9 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Widgets/contactus.dart';
 import 'package:tradingsignals/Widgets/custombutton.dart';
+import 'package:tradingsignals/Widgets/homescreenHadingText.dart';
+import 'package:tradingsignals/Widgets/networkImage.dart';
+import 'package:tradingsignals/Widgets/gradientIconReource.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,10 +17,25 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isNotifications = false;
   bool isDark = false;
   bool isQuickLaunch = false;
+
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
+    final decoration = BoxDecoration(
+        border: Border.all(
+          color: Color.fromARGB(255, 208, 207, 207),
+        ),
+        borderRadius: BorderRadius.circular(3),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5), //color of shadow
+            spreadRadius: 5, //spread radius
+            blurRadius: 7, // blur radius
+            offset: Offset(0, 2),
+          )
+        ]);
     return Scaffold(
       body: Container(
         child: ListView(
@@ -28,48 +46,73 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Item(context, 'assets/dollar.png', 'Subscribe', screenWidth, screenHeight),
-                  Item(context, 'assets/signals.png', 'TSMT5', screenWidth, screenHeight),
-                  Item(context, 'assets/faq.png', 'FAQ', screenWidth, screenHeight),
-                  Item(context, 'assets/help.png', 'Help', screenWidth, screenHeight),
-                  Item(context, 'assets/rate.png', 'Rate', screenWidth, screenHeight),
-                  Item(context, 'assets/tel2.png', 'Telegram', screenWidth, screenHeight),
-                  Item(context, 'assets/4rexteam.png', '4rex Team', screenWidth, screenHeight),
-                  Item(context, 'assets/facebook.png', 'Facebook', screenWidth, screenHeight),
-                  Item(context, 'assets/yt.png', 'YouTube', screenWidth, screenHeight),
+                  Item(context, 'assets/dollar.png', 'Subscribe', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/signals.png', 'TSMT5', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/faq.png', 'FAQ', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/help.png', 'Help', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/rate.png', 'Rate', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/tel2.png', 'Telegram', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/4rexteam.png', '4rex Team', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/facebook.png', 'Facebook', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/yt.png', 'YouTube', screenWidth,
+                      screenHeight),
                 ],
               ),
             ),
-            myInboxAndAccountManager(context, screenHeight, screenWidth),
+            myInboxAndAccountManager(
+                context, screenHeight, screenWidth, decoration),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.31,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Chatroom'),
-                    Container(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
-                          'Join Public Telegram Group to interact and share knowledge with others'),
+                        'Chatroom',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 22, 57, 85),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    AvatarGlow(
-                      glowColor: Colors.blue,
-                      endRadius: 90,
-                      duration: Duration(milliseconds: 2000),
-                      repeat: true,
-                      animate: true,
-                      showTwoGlows: true,
-                      repeatPauseDuration: Duration(milliseconds: 100),
-                      child: Material(
-                        elevation: 8.0,
-                        shape: CircleBorder(),
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('assets/tel.jpg'),
-                          radius: 32,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Text(
+                          'Join Public Telegram Group to interact and share knowledge with others',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: AvatarGlow(
+                        glowColor: Colors.blue,
+                        endRadius: 90,
+                        duration: Duration(milliseconds: 2000),
+                        repeat: true,
+                        animate: true,
+                        showTwoGlows: true,
+                        repeatPauseDuration: Duration(milliseconds: 100),
+                        child: Material(
+                          elevation: 8.0,
+                          shape: CircleBorder(),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/tel.jpg'),
+                            radius: 28,
+                          ),
                         ),
                       ),
                     ),
@@ -82,13 +125,11 @@ class _HomeScreenState extends State<HomeScreen> {
               height: screenHeight * 1.5,
               width: screenWidth,
               child: Container(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(8),
                 child: Container(
                   height: screenHeight * 1.5,
                   width: screenWidth,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                  ),
+                  decoration: decoration,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -277,26 +318,33 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // new part of screen
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.35,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.18,
+                        width: MediaQuery.of(context).size.width,
+                        child: networkImageWidget(
+                            context,
+                            'https://az705044.vo.msecnd.net/20200611/6-11-2020-5-13-50-pm.png',
+                            BoxFit.contain),
+                      ),
                     ),
-                    Text(
-                      'Recommended Broker',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      child: Text('Trade 24/7, Trade with Deriv today! '),
+                    homeHadings(context, 'Recommended Broker'),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Text(
+                          'Trade 24/7, Trade with Deriv today! ',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
                     ),
                     Center(
                       child: CustomButton(
@@ -311,27 +359,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // new part of screen
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.4,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.18,
+                          width: MediaQuery.of(context).size.width,
+                          child: networkImageWidget(
+                              context,
+                              'https://ivssolutions.co.in/wp-content/uploads/2020/03/ivssolutions-technical-support-9.png',
+                              BoxFit.contain)),
                     ),
-                    Text(
-                      'Support',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      child: Text(
-                          'Have any concerns? please contact us via Email or telegram below. Note that we will only respond to relevent questions, business queries or ideas..'),
+                    homeHadings(context, 'Support'),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Text(
+                            style: TextStyle(fontSize: 18),
+                            'Have any concerns? please contact us via Email or telegram below. Note that we will only respond to relevent questions, business queries or ideas..'),
+                      ),
                     ),
                     contactus(context, true),
                   ],
@@ -340,24 +392,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //new part of screen
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.35,
+                height: screenHeight * 0.4,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.18,
+                          width: MediaQuery.of(context).size.width,
+                          child: networkImageWidget(
+                              context,
+                              'https://st2.depositphotos.com/1021974/11498/i/950/depositphotos_114987484-stock-photo-two-gear-wheels.jpg',
+                              BoxFit.contain)),
                     ),
-                    Text(
-                      'Settings',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                    homeHadings(context, 'Settings'),
                     Row(
                       children: [
                         Checkbox(
@@ -406,26 +458,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //new part
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.28,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Advert',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    homeHadings(context, 'Adverts'),
+                    SizedBox(
+                      height: 10,
                     ),
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: networkImageWidget(
+                              context,
+                              'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+                              BoxFit.cover)),
                     ),
-                    
-                    
                   ],
                 ),
               ),
@@ -549,7 +602,8 @@ Widget profilepic(BuildContext context, double radius) {
   );
 }
 
-Widget Item(BuildContext context, String path, String name, double screenWidth, double screenHeight) {
+Widget Item(BuildContext context, String path, String name, double screenWidth,
+    double screenHeight) {
   return Container(
     padding: EdgeInsets.symmetric(
       horizontal: 10,
@@ -588,26 +642,23 @@ Widget Item(BuildContext context, String path, String name, double screenWidth, 
   );
 }
 
-Widget myInboxAndAccountManager(
-    BuildContext context, double screenHeight, double screenWidth) {
+Widget myInboxAndAccountManager(BuildContext context, double screenHeight,
+    double screenWidth, Decoration decoration) {
   return Container(
-    padding: EdgeInsets.all(16),
+    padding: EdgeInsets.all(8),
     child: Container(
-      height: screenHeight * 0.28,
+      height: screenHeight * 0.3,
       width: screenWidth,
-      decoration: BoxDecoration(border: Border.all()),
+      decoration: decoration,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          'My Inbox',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        homeHadings(context, 'My Inbox'),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 5),
           child: Container(
             padding: EdgeInsets.all(2),
             width: screenWidth,
             height: screenHeight * 0.1,
-            decoration: BoxDecoration(border: Border.all()),
+            decoration: decoration,
             child: Row(
               children: [
                 profilepic(context, MediaQuery.of(context).size.height * 0.05),
@@ -618,15 +669,25 @@ Widget myInboxAndAccountManager(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: screenHeight * 0.02,
-                      width: screenWidth * 0.6,
+                      height: screenHeight * 0.03,
+                      width: screenWidth * 0.66,
                       child: Row(
                         children: [
-                          Text('data'),
-                          IconButton(
-                              iconSize: 20,
-                              icon: Icon(Icons.arrow_forward),
-                              onPressed: () {}),
+                          Text('4rex Team Admin'),
+                          Flexible(
+                            child: Container(),
+                            flex: 2,
+                          ),
+                          MyOutlinedButton(
+                              onPressed: () {},
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: GradientIcon(
+                                    Icons.arrow_forward,
+                                    10,
+                                    LinearGradient(
+                                        colors: [Colors.black, Colors.red])),
+                              ))
                         ],
                       ),
                     ),
@@ -653,14 +714,11 @@ Widget myInboxAndAccountManager(
         ),
 
         //
-        Text(
-          'Account Managers',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        homeHadings(context, 'Account Managers'),
         Container(
           height: screenHeight * 0.1,
           width: screenWidth * 0.3,
-          decoration: BoxDecoration(border: Border.all()),
+          decoration: decoration,
           child: Column(
             children: [
               profilepic(context, MediaQuery.of(context).size.height * 0.03),
