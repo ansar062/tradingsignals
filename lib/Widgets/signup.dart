@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Widgets/passwordTextField.dart';
 import 'package:tradingsignals/Widgets/textfield.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 Widget signUp(
     BuildContext context,
@@ -9,8 +10,7 @@ Widget signUp(
     TextEditingController password,
     Function change,
     bool isobsecure,
-    Function show
-    ) {
+    Function show) {
   return Container(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,43 +23,43 @@ Widget signUp(
           height: 5,
         ),
         TextFieldInput(
-            textEditingController: username,
-            hintText: 'Enter username',
-            textInputType: TextInputType.emailAddress,
-            ),
+          textEditingController: username,
+          hintText: 'usernameText'.tr(),
+          textInputType: TextInputType.emailAddress,
+        ),
         SizedBox(
           height: 5,
         ),
         Text(
-          'Email',
+          'email'.tr(),
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           height: 5,
         ),
         TextFieldInput(
-            textEditingController: email,
-            hintText: 'Enter email address',
-            textInputType: TextInputType.emailAddress,
-            ),
-
+          textEditingController: email,
+          hintText: 'emailText'.tr(),
+          textInputType: TextInputType.emailAddress,
+        ),
         SizedBox(
           height: 5,
         ),
         Text(
-          'Password',
+          'password'.tr(),
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           height: 5,
         ),
-        passwordTextField(context, password, 'Enter password', isobsecure, show),
+        passwordTextField(
+            context, password, 'passwordText'.tr(), isobsecure, show),
         Row(
           children: [
             ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
                 onPressed: () {},
-                child: Text('Register')),
+                child: Text('register'.tr())),
             Flexible(
               child: Container(),
               flex: 2,
@@ -69,7 +69,7 @@ Widget signUp(
                 onPressed: () {
                   change();
                 },
-                child: Text('Login')),
+                child: Text('login'.tr())),
           ],
         ),
       ],

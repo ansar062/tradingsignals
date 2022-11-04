@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Widgets/textfield.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 Widget reseting(
     BuildContext context, TextEditingController email, Function back) {
@@ -16,7 +17,7 @@ Widget reseting(
         ),
         TextFieldInput(
             textEditingController: email,
-            hintText: 'Enter email address',
+            hintText: 'emailText'.tr(),
             textInputType: TextInputType.emailAddress),
         SizedBox(
           height: 5,
@@ -26,19 +27,19 @@ Widget reseting(
             ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () {},
-                child: Text('Reset')),
-            Flexible(
-              child: Container(),
-              flex: 2,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
-                onPressed: () {
-                  back();
-                },
-                child: Text('Back')),
+                child: Text(  'reset'.tr() ,style: TextStyle(overflow: TextOverflow.ellipsis),    )
+                
+                
+                ),
+           
           ],
         ),
+        ElevatedButton(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
+            onPressed: () {
+              back();
+            },
+            child: Text('Back')),
       ],
     ),
   );

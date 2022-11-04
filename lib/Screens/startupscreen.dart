@@ -1,4 +1,5 @@
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Widgets/loginwidget.dart';
 import 'package:tradingsignals/Widgets/reset.dart';
@@ -117,7 +118,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   Divider(),
                                   Container(
                                     child: Text(
-                                        'Forex, Cryptocurrency, Commondity and Indices Signals app, please login to continue.'),
+                                        'Forex Cryptocurrency Commondity and Indices Signals app please login to continue'.tr()),
                                   ),
                                   SizedBox(
                                     height: 30,
@@ -127,7 +128,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
-                                  ),
+                                  ).tr(),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height *
@@ -141,6 +142,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                               value: isSelected[0],
                                               onChanged: (bool? val) {
                                                 setState(() {
+                                                  context
+                                                      .setLocale(Locale('en'));
                                                   isSelected[0] = val!;
                                                   if (val == true) {
                                                     isSelected[1] = false;
@@ -165,6 +168,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                               value: isSelected[1],
                                               onChanged: (bool? val) {
                                                 setState(() {
+                                                  context
+                                                      .setLocale(Locale('es'));
                                                   isSelected[1] = val!;
                                                   if (val == true) {
                                                     isSelected[0] = false;
@@ -189,6 +194,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                               value: isSelected[2],
                                               onChanged: (bool? val) {
                                                 setState(() {
+                                                  context
+                                                      .setLocale(Locale('fr'));
                                                   isSelected[2] = val!;
                                                   if (val == true) {
                                                     isSelected[1] = false;
@@ -216,7 +223,10 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                                   width: 2),
                                               value: isSelected[3],
                                               onChanged: (bool? val) {
+                                                context
+                                                      .setLocale(Locale('hi'));
                                                 setState(() {
+
                                                   isSelected[3] = val!;
                                                   if (val == true) {
                                                     isSelected[1] = false;
@@ -241,6 +251,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                               value: isSelected[4],
                                               onChanged: (bool? val) {
                                                 setState(() {
+                                                  context
+                                                      .setLocale(Locale('pt'));
                                                   isSelected[4] = val!;
                                                   if (val == true) {
                                                     isSelected[1] = false;
@@ -265,6 +277,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                               value: isSelected[5],
                                               onChanged: (bool? val) {
                                                 setState(() {
+                                                  context
+                                                      .setLocale(Locale('ar'));
                                                   isSelected[5] = val!;
                                                   if (val == true) {
                                                     isSelected[1] = false;
@@ -345,7 +359,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   Center(
                                     child: Container(
                                       child: Text(
-                                        'Failing to login? contact us now.',
+                                        
+                                        'failing_to_login_contact_us_now'.tr(),
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
@@ -444,7 +459,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                     height: 20,
                                   ),
                                   Container(
-                                    child: Text('Installation and Login Guide'),
+                                    child: Text('installation_and_login_guide'.tr()),
                                   ),
                                   SizedBox(
                                     height: 20,
@@ -461,7 +476,7 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                             BorderRadius.circular(30)),
                                     child: Center(
                                         child: Text(
-                                      'WATCH',
+                                      "watch".tr(),
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 18),
                                     )),

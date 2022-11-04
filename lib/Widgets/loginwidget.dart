@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Widgets/passwordTextField.dart';
 import 'package:tradingsignals/Widgets/textfield.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 Widget logIn(BuildContext context, TextEditingController email,
     TextEditingController password, Function change, Function reset, bool isobsecure, Function show) {
@@ -9,7 +11,7 @@ Widget logIn(BuildContext context, TextEditingController email,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Email',
+          'email'.tr(),
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         SizedBox(
@@ -17,26 +19,26 @@ Widget logIn(BuildContext context, TextEditingController email,
         ),
         TextFieldInput(
             textEditingController: email,
-            hintText: 'Enter email address',
+            hintText: 'emailText'.tr(),
             textInputType: TextInputType.emailAddress),
         SizedBox(
           height: 5,
         ),
         Text(
-          'Password',
+          'password'.tr(),
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         SizedBox(
           height: 5,
         ),
-        passwordTextField(context, password, 'Enter password', isobsecure, show),
+        passwordTextField(context, password, 'passwordText'.tr(), isobsecure, show),
         
         Row(
           children: [
             ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () {},
-                child: Text('Login')),
+                child: Text('login'.tr())),
             Flexible(
               child: Container(),
               flex: 2,
@@ -46,7 +48,7 @@ Widget logIn(BuildContext context, TextEditingController email,
                 onPressed: () {
                   change();
                 },
-                child: Text('Register')),
+                child: Text('register'.tr())),
           ],
         ),
         Row(
@@ -57,7 +59,7 @@ Widget logIn(BuildContext context, TextEditingController email,
                 onPressed: () {
                   reset();
                 },
-                child: Text('Reset')),
+                child: Text('resetHome'.tr())),
           ],
         )
       ],
