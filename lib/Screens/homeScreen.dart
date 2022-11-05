@@ -2,6 +2,9 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Widgets/contactus.dart';
 import 'package:tradingsignals/Widgets/custombutton.dart';
+import 'package:tradingsignals/Widgets/homescreenHadingText.dart';
+import 'package:tradingsignals/Widgets/networkImage.dart';
+import 'package:tradingsignals/Widgets/gradientIconReource.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,58 +17,102 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isNotifications = false;
   bool isDark = false;
   bool isQuickLaunch = false;
+
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
     var screenHeight = MediaQuery.of(context).size.height;
+    final decoration = BoxDecoration(
+        border: Border.all(
+          color: Color.fromARGB(255, 208, 207, 207),
+        ),
+        borderRadius: BorderRadius.circular(3),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5), //color of shadow
+            spreadRadius: 5, //spread radius
+            blurRadius: 7, // blur radius
+            offset: Offset(0, 2),
+          )
+        ]);
     return Scaffold(
       body: Container(
         child: ListView(
           children: [
             SizedBox(
               width: screenWidth,
-              height: screenHeight * 0.1,
+              height: screenHeight * 0.12,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Item(context, Colors.green, 'assets/dollar.png', 'Subscribe'),
-                  Item(context, Colors.amber, 'assets/question.png', 'FAQ'),
-                  Item(context, Colors.blue, 'assets/help.png', 'Help'),
-                  Item(context, Colors.blue, 'assets/facebook.png', 'Facebook'),
-                  Item(context, Colors.white, 'assets/yt.png', 'YouTube'),
+                  Item(context, 'assets/dollar.png', 'Subscribe', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/signals.png', 'TSMT5', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/faq.png', 'FAQ', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/help.png', 'Help', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/rate.png', 'Rate', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/tel2.png', 'Telegram', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/4rexteam.png', '4rex Team', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/facebook.png', 'Facebook', screenWidth,
+                      screenHeight),
+                  Item(context, 'assets/yt.png', 'YouTube', screenWidth,
+                      screenHeight),
                 ],
               ),
             ),
-            myInboxAndAccountManager(context, screenHeight, screenWidth),
+            myInboxAndAccountManager(
+                context, screenHeight, screenWidth, decoration),
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.31,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Chatroom'),
-                    Container(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
-                          'Join Public Telegram Group to interact and share knowledge with others'),
+                        'Chatroom',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 22, 57, 85),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                    AvatarGlow(
-                      glowColor: Colors.blue,
-                      endRadius: 90,
-                      duration: Duration(milliseconds: 2000),
-                      repeat: true,
-                      animate: true,
-                      showTwoGlows: true,
-                      repeatPauseDuration: Duration(milliseconds: 100),
-                      child: Material(
-                        elevation: 8.0,
-                        shape: CircleBorder(),
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage('assets/tel.jpg'),
-                          radius: 32,
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Text(
+                          'Join Public Telegram Group to interact and share knowledge with others',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: AvatarGlow(
+                        glowColor: Colors.blue,
+                        endRadius: screenHeight * 0.1,
+                        duration: Duration(milliseconds: 2000),
+                        repeat: true,
+                        animate: true,
+                        showTwoGlows: true,
+                        repeatPauseDuration: Duration(milliseconds: 100),
+                        child: Material(
+                          elevation: 8.0,
+                          shape: CircleBorder(),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage('assets/tel.jpg'),
+                            radius: 28,
+                          ),
                         ),
                       ),
                     ),
@@ -75,32 +122,34 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //
             SizedBox(
-              height: screenHeight * 1.5,
+              height: screenHeight * 2,
               width: screenWidth,
               child: Container(
-                padding: EdgeInsets.all(16),
+                padding: EdgeInsets.all(8),
                 child: Container(
                   height: screenHeight * 1.5,
                   width: screenWidth,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                  ),
+                  padding: EdgeInsets.all(8),
+                  decoration: decoration,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      homeHadings(context, 'VIP & Anti Ads'),
                       Text(
-                        'VIP & Anti Ads',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                        'Subcribe to continue enjoying out signals',
+                        style: TextStyle(fontSize: 16),
                       ),
-                      Text('Subcribe to continue enjoying out signals'),
                       Row(
                         children: [
                           Icon(
                             Icons.check_sharp,
                             color: Colors.green,
+                            size: 30,
                           ),
-                          Text('10 - 35 Signals per day')
+                          Text(
+                            '10 - 35 Signals per day',
+                            style: TextStyle(fontSize: 16),
+                          )
                         ],
                       ),
                       Row(
@@ -108,8 +157,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icon(
                             Icons.check_sharp,
                             color: Colors.green,
+                            size: 30,
                           ),
-                          Text('Join VIP telegram channel')
+                          Text(
+                            'Join VIP telegram channel',
+                            style: TextStyle(fontSize: 16),
+                          )
                         ],
                       ),
                       Row(
@@ -117,20 +170,34 @@ class _HomeScreenState extends State<HomeScreen> {
                           Icon(
                             Icons.check_sharp,
                             color: Colors.green,
+                            size: 30,
                           ),
-                          Text('Disable adverts')
+                          Text(
+                            'Disable adverts',
+                            style: TextStyle(fontSize: 16),
+                          )
                         ],
                       ),
                       Container(
                         child: Text(
-                            'Subcribe by choosing a plan that fits your budget below'),
+                          'Subcribe by choosing a plan that fits your budget below',
+                          style: TextStyle(fontSize: 16),
+                        ),
                       ),
-                      Text(
-                        'VISA/BANK CARD',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                      homeHadings(context, 'VISA/BANK CARD'),
+                      SizedBox(
+                        height: 10,
                       ),
-                      planstoSubcribe(context, screenHeight, screenWidth),
+                      Divider(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      planstoSubcribe(
+                          context, screenHeight, screenWidth),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Divider(),
                       Container(
                         child: Text(
                             'Trade spikes with the best spikes squad on telegram. Note that this is only available to those with equity \$50+.'),
@@ -138,7 +205,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         width: screenWidth,
                         child: Row(children: [
-                          Text('Spikes \$10 Weekly'),
+                          Text(
+                            'Spikes \$10 Weekly',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
                           Flexible(flex: 2, child: Container()),
                           CustomButton(
                             func: () {},
@@ -146,34 +217,51 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 0.3,
                             color: Colors.red,
                             fontsize: 14,
-                          )
+                          ),
                         ]),
                       ),
-                      Text(
-                        'Other Payment Methods',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                      SizedBox(
+                        height: 10,
                       ),
+                      Divider(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      homeHadings(context, 'Other Paymeny Methods'),
                       Container(
                         child: Text(
-                            'Contact us for any other payment methods you would like to use.'),
+                          'Contact us for any other payment methods you would like to use.',
+                          style: TextStyle(fontSize: 16),
+                        ),
                       ),
                       SizedBox(
                         width: screenWidth,
-                        height: screenHeight * 0.2,
+                        height: screenHeight * 0.15,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
                             othermethods(context, screenHeight, screenWidth,
                                 'assets/wire.png', 'Wire'),
+                            SizedBox(
+                              width: screenWidth * 0.02,
+                            ),
                             othermethods(context, screenHeight, screenWidth,
                                 'assets/astropay.png', 'Astropay'),
+                            SizedBox(
+                              width: screenWidth * 0.02,
+                            ),
                             othermethods(context, screenHeight, screenWidth,
                                 'assets/perfectmoney.jpg', 'Perfect Money'),
+                            SizedBox(
+                              width: screenWidth * 0.02,
+                            ),
                             othermethods(context, screenHeight, screenWidth,
                                 'assets/wu.png', 'Western Union'),
                           ],
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Center(
                           child: CustomButton(
@@ -181,14 +269,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'CONTACT US',
                         color: Colors.red,
                       )),
-                      Text(
-                        'My Wallet',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                      SizedBox(
+                        height: 10,
                       ),
+                      Divider(),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      homeHadings(context, 'My Wallet'),
                       Container(
                         child: Text(
                             "Don't have money? Daily check in to Unlock Subcription."),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.05,
                       ),
                       Center(
                         child: Container(
@@ -204,14 +298,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        'Last Check in: ',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
+                        'Last Check In: ',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Container(
                         height: screenHeight * 0.07,
                         width: screenWidth,
-                        color: Color.fromARGB(255, 240, 211, 125),
+                        color: Colors.amber.withOpacity(0.5),
                         child: Row(
                           children: [
                             Padding(
@@ -234,24 +330,37 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       ),
+                      SizedBox(
+                        height: 10,
+                      ),
                       Container(
                         child: Text(
                             'Support app development and maintenance by donating. Thank you in anticipation.'),
                       ),
                       SizedBox(
+                        height: 20,
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
                         width: screenWidth,
                         height: screenHeight * 0.07,
                         child: Row(children: [
-                          Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              border: Border.all(),
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.white,
-                            ),
-                            child: Center(
-                              child: Text('\$2'),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                              child: Center(
+                                child: Text('\$2'),
+                              ),
                             ),
                           ),
                           Flexible(flex: 1, child: Container()),
@@ -273,26 +382,33 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // new part of screen
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.35,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.18,
+                        width: MediaQuery.of(context).size.width,
+                        child: networkImageWidget(
+                            context,
+                            'https://az705044.vo.msecnd.net/20200611/6-11-2020-5-13-50-pm.png',
+                            BoxFit.contain),
+                      ),
                     ),
-                    Text(
-                      'Recommended Broker',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      child: Text('Trade 24/7, Trade with Deriv today! '),
+                    homeHadings(context, 'Recommended Broker'),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Text(
+                          'Trade 24/7, Trade with Deriv today! ',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
                     ),
                     Center(
                       child: CustomButton(
@@ -307,27 +423,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             // new part of screen
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.4,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.18,
+                          width: MediaQuery.of(context).size.width,
+                          child: networkImageWidget(
+                              context,
+                              'https://ivssolutions.co.in/wp-content/uploads/2020/03/ivssolutions-technical-support-9.png',
+                              BoxFit.contain)),
                     ),
-                    Text(
-                      'Support',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Container(
-                      child: Text(
-                          'Have any concerns? please contact us via Email or telegram below. Note that we will only respond to relevent questions, business queries or ideas..'),
+                    homeHadings(context, 'Support'),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        child: Text(
+                            style: TextStyle(fontSize: 18),
+                            'Have any concerns? please contact us via Email or telegram below. Note that we will only respond to relevent questions, business queries or ideas..'),
+                      ),
                     ),
                     contactus(context, true),
                   ],
@@ -336,24 +456,24 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //new part of screen
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.35,
+                height: screenHeight * 0.4,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.18,
+                          width: MediaQuery.of(context).size.width,
+                          child: networkImageWidget(
+                              context,
+                              'https://st2.depositphotos.com/1021974/11498/i/950/depositphotos_114987484-stock-photo-two-gear-wheels.jpg',
+                              BoxFit.contain)),
                     ),
-                    Text(
-                      'Settings',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
+                    homeHadings(context, 'Settings'),
                     Row(
                       children: [
                         Checkbox(
@@ -402,26 +522,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             //new part
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(8),
               child: Container(
-                height: screenHeight * 0.3,
+                height: screenHeight * 0.28,
                 width: screenWidth,
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+                decoration: decoration,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Advert',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    homeHadings(context, 'Adverts'),
+                    SizedBox(
+                      height: 10,
                     ),
-                    Image.asset(
-                      'assets/tradinggraph.png',
-                      height: screenHeight * 0.14,
+                    Center(
+                      child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: networkImageWidget(
+                              context,
+                              'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
+                              BoxFit.cover)),
                     ),
-                    
-                    
                   ],
                 ),
               ),
@@ -445,88 +566,121 @@ Widget othermethods(BuildContext context, double screenHeight,
               color: Colors.amber,
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
-                  fit: BoxFit.fitHeight,
+                  fit: BoxFit.fill,
                   image: AssetImage(
                     path,
                   ))),
         ),
         SizedBox(
-          height: 20,
+          height: 10,
         ),
-        Text(name)
+        Text(
+          name,
+          style: TextStyle(fontSize: 10),
+        )
       ],
     ),
   );
 }
 
-Widget planstoSubcribe(
-    BuildContext context, double screenHeight, double screenWidth) {
-  double size = screenWidth * 0.01;
+Widget planstoSubcribe(BuildContext context, double screenHeight,
+    double screenWidth) {
   return Container(
     decoration: BoxDecoration(
-        color: Colors.grey, borderRadius: BorderRadius.circular(13)),
+        color: Color.fromARGB(255, 218, 218, 218),
+        borderRadius: BorderRadius.circular(20)),
     child: SizedBox(
-      height: screenHeight * 0.2,
+      height: screenHeight * 0.25,
       width: screenWidth,
       child: Container(
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Row(
-              children: [
-                Column(
-                  children: [
-                    Text("1 weekly \$8.2"),
-                    CustomButton(
-                      func: () {},
-                      text: 'SUBSCRIBE',
-                      width: 0.37,
-                      color: Colors.blue,
-                      fontsize: 14,
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text("1 weekly \$8.2"),
-                    CustomButton(
-                      func: () {},
-                      text: 'SUBSCRIBE',
-                      width: 0.37,
-                      color: Colors.blue,
-                      fontsize: 14,
-                    )
-                  ],
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "1 weekly \$8.2",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CustomButton(
+                        func: () {},
+                        text: 'SUBSCRIBE',
+                        width: 0.37,
+                        color: Colors.blue,
+                        fontsize: 14,
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        "1 weekly \$8.2",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CustomButton(
+                        func: () {},
+                        text: 'SUBSCRIBE',
+                        width: 0.37,
+                        color: Colors.blue,
+                        fontsize: 14,
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
-            Row(
-              children: [
-                Column(
-                  children: [
-                    Text("1 weekly \$8.2"),
-                    CustomButton(
-                      func: () {},
-                      text: 'SUBSCRIBE',
-                      width: 0.37,
-                      color: Colors.blue,
-                      fontsize: 14,
-                    )
-                  ],
-                ),
-                Column(
-                  children: [
-                    Text("1 weekly \$8.2"),
-                    CustomButton(
-                      func: () {},
-                      text: 'SUBSCRIBE',
-                      width: 0.37,
-                      color: Colors.red,
-                      fontsize: 14,
-                    )
-                  ],
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text("1 weekly \$8.2", style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),),
+                            SizedBox(
+                              height: 10,
+                            ),
+                      CustomButton(
+                        func: () {},
+                        text: 'SUBSCRIBE',
+                        width: 0.37,
+                        color: Colors.blue,
+                        fontsize: 14,
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text("1 weekly \$8.2 👑", style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),),
+                            SizedBox(
+                              height: 10,
+                            ),
+                      CustomButton(
+                        func: () {},
+                        text: 'SUBSCRIBE',
+                        width: 0.37,
+                        color: Colors.red,
+                        fontsize: 14,
+                      )
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
@@ -538,14 +692,19 @@ Widget planstoSubcribe(
 Widget profilepic(BuildContext context, double radius) {
   return Container(
     child: CircleAvatar(
-        backgroundImage: AssetImage(
-          'assets/tradinggraph.png',
-        ),
-        radius: radius),
+      radius: radius + 5,
+      backgroundColor: Color.fromARGB(255, 30, 71, 104),
+      child: CircleAvatar(
+          backgroundImage: AssetImage(
+            'assets/tradinggraph.png',
+          ),
+          radius: radius),
+    ),
   );
 }
 
-Widget Item(BuildContext context, Color color, String path, String name) {
+Widget Item(BuildContext context, String path, String name, double screenWidth,
+    double screenHeight) {
   return Container(
     padding: EdgeInsets.symmetric(
       horizontal: 10,
@@ -553,17 +712,16 @@ Widget Item(BuildContext context, Color color, String path, String name) {
     child: Column(
       children: [
         Container(
-          height: MediaQuery.of(context).size.height * 0.07,
-          width: MediaQuery.of(context).size.width * 0.15,
+          height: screenHeight * 0.07,
+          width: screenWidth * 0.15,
           decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(20)),
-          child: Container(
-              padding: EdgeInsets.all(5),
-              child: Image.asset(
-                path,
-                height: 10,
-                width: 30,
-              )),
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(
+                    path,
+                  ))),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
@@ -585,29 +743,30 @@ Widget Item(BuildContext context, Color color, String path, String name) {
   );
 }
 
-Widget myInboxAndAccountManager(
-    BuildContext context, double screenHeight, double screenWidth) {
+Widget myInboxAndAccountManager(BuildContext context, double screenHeight,
+    double screenWidth, Decoration decoration) {
   return Container(
-    padding: EdgeInsets.all(16),
+    padding: EdgeInsets.all(8),
     child: Container(
-      height: screenHeight * 0.28,
+      height: screenHeight * 0.3,
       width: screenWidth,
-      decoration: BoxDecoration(border: Border.all()),
+      decoration: decoration,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          'My Inbox',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        homeHadings(context, 'My Inbox'),
         Container(
           padding: EdgeInsets.symmetric(horizontal: 5),
           child: Container(
             padding: EdgeInsets.all(2),
             width: screenWidth,
             height: screenHeight * 0.1,
-            decoration: BoxDecoration(border: Border.all()),
+            decoration: decoration,
             child: Row(
               children: [
-                profilepic(context, MediaQuery.of(context).size.height * 0.05),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                  child: profilepic(
+                      context, MediaQuery.of(context).size.height * 0.04),
+                ),
                 SizedBox(
                   width: 10,
                 ),
@@ -615,21 +774,44 @@ Widget myInboxAndAccountManager(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: screenHeight * 0.02,
-                      width: screenWidth * 0.6,
+                      height: screenHeight * 0.03,
+                      width: screenWidth * 0.66,
                       child: Row(
                         children: [
-                          Text('data'),
-                          IconButton(
-                              iconSize: 20,
-                              icon: Icon(Icons.arrow_forward),
-                              onPressed: () {}),
+                          Text(
+                            '4rex Team Admin',
+                            style: TextStyle(fontSize: 12),
+                          ),
+                          Flexible(
+                            child: Container(),
+                            flex: 2,
+                          ),
+                          Container(
+                            height: screenHeight * 0.03,
+                            width: screenWidth * 0.06,
+                            decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                    colors: [Colors.blue, Colors.red]),
+                                borderRadius: BorderRadius.circular(2)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(1.0),
+                              child: Container(
+                                alignment: Alignment.center,
+                                color: Colors.white,
+                                child: GradientIcon(
+                                    Icons.arrow_forward,
+                                    15,
+                                    LinearGradient(
+                                        colors: [Colors.blue, Colors.red])),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                     SizedBox(
-                      height: screenHeight * 0.07,
-                      width: screenWidth * 0.6,
+                      height: screenHeight * 0.06,
+                      width: screenWidth * 0.66,
                       child: Row(children: [
                         Expanded(
                           child: Text(
@@ -650,19 +832,19 @@ Widget myInboxAndAccountManager(
         ),
 
         //
-        Text(
-          'Account Managers',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Container(
-          height: screenHeight * 0.1,
-          width: screenWidth * 0.3,
-          decoration: BoxDecoration(border: Border.all()),
-          child: Column(
-            children: [
-              profilepic(context, MediaQuery.of(context).size.height * 0.03),
-              Text('Admin')
-            ],
+        homeHadings(context, 'Account Managers'),
+        Padding(
+          padding: const EdgeInsets.only(left: 8.0),
+          child: Container(
+            height: screenHeight * 0.1,
+            width: screenWidth * 0.3,
+            decoration: decoration,
+            child: Column(
+              children: [
+                profilepic(context, MediaQuery.of(context).size.height * 0.03),
+                Text('Admin')
+              ],
+            ),
           ),
         ),
       ]),

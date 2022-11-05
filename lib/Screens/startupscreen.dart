@@ -69,9 +69,9 @@ class _StartUpScreenState extends State<StartUpScreen> {
   @override
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      backgroundColor: Colors.white,
-      child: ListView(
+    return Scaffold(
+      //backgroundColor: Colors.white,
+      body: ListView(
         children: [
           SingleChildScrollView(
             child: Container(
@@ -131,164 +131,161 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16),
-<<<<<<< HEAD
                                   ),
-                                  Card(
-                                    child: SizedBox(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: MediaQuery.of(context).size.height *
-                                          0.05,
-                                      child: ListView(
-                                        scrollDirection: Axis.horizontal,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                value: isSelected[0],
-                                                onChanged: (bool? val) {
-                                                  setState(() {
-                                                    isSelected[0] = val!;
-                                                    if (val == true) {
-                                                      isSelected[1] = false;
-                                                      isSelected[2] = false;
-                                                      isSelected[3] = false;
-                                                      isSelected[4] = false;
-                                                      isSelected[5] = false;
-                                                    }
-                                                  });
-                                                },
-                                                activeColor: Colors.green,
-                                                side: BorderSide(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                              ),
-                                              Text('English')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                value: isSelected[1],
-                                                onChanged: (bool? val) {
-                                                  setState(() {
-                                                    isSelected[1] = val!;
-                                                    if (val == true) {
-                                                      isSelected[0] = false;
-                                                      isSelected[2] = false;
-                                                      isSelected[3] = false;
-                                                      isSelected[4] = false;
-                                                      isSelected[5] = false;
-                                                    }
-                                                  });
-                                                },
-                                                activeColor: Colors.green,
-                                                side: BorderSide(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                              ),
-                                              Text('Spanish')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                value: isSelected[2],
-                                                onChanged: (bool? val) {
-                                                  setState(() {
-                                                    isSelected[2] = val!;
-                                                    if (val == true) {
-                                                      isSelected[1] = false;
-                                                      isSelected[0] = false;
-                                                      isSelected[3] = false;
-                                                      isSelected[4] = false;
-                                                      isSelected[5] = false;
-                                                    }
-                                                  });
-                                                },
-                                                activeColor: Colors.green,
-                                                side: BorderSide(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                              ),
-                                              Text('French')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                activeColor: Colors.green,
-                                                side: BorderSide(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                                value: isSelected[3],
-                                                onChanged: (bool? val) {
-                                                  setState(() {
-                                                    isSelected[3] = val!;
-                                                    if (val == true) {
-                                                      isSelected[1] = false;
-                                                      isSelected[2] = false;
-                                                      isSelected[0] = false;
-                                                      isSelected[4] = false;
-                                                      isSelected[5] = false;
-                                                    }
-                                                  });
-                                                },
-                                              ),
-                                              Text('Hindi')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                activeColor: Colors.green,
-                                                side: BorderSide(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                                value: isSelected[4],
-                                                onChanged: (bool? val) {
-                                                  setState(() {
-                                                    isSelected[4] = val!;
-                                                    if (val == true) {
-                                                      isSelected[1] = false;
-                                                      isSelected[2] = false;
-                                                      isSelected[3] = false;
-                                                      isSelected[0] = false;
-                                                      isSelected[5] = false;
-                                                    }
-                                                  });
-                                                },
-                                              ),
-                                              Text('Portuguese')
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              Checkbox(
-                                                activeColor: Colors.green,
-                                                side: BorderSide(
-                                                    color: Colors.green,
-                                                    width: 2),
-                                                value: isSelected[5],
-                                                onChanged: (bool? val) {
-                                                  setState(() {
-                                                    isSelected[5] = val!;
-                                                    if (val == true) {
-                                                      isSelected[1] = false;
-                                                      isSelected[2] = false;
-                                                      isSelected[3] = false;
-                                                      isSelected[4] = false;
-                                                      isSelected[0] = false;
-                                                    }
-                                                  });
-                                                },
-                                              ),
-                                              Text('Arabic')
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-=======
-                                  ).tr(),
+                                  //SizedBox(
+                                  //     width: MediaQuery.of(context).size.width,
+                                  //     height: MediaQuery.of(context).size.height *
+                                  //         0.05,
+                                  //     child: ListView(
+                                  //       scrollDirection: Axis.horizontal,
+                                  //       children: [
+                                  //         Row(
+                                  //           children: [
+                                  //             Checkbox(
+                                  //               value: isSelected[0],
+                                  //               onChanged: (bool? val) {
+                                  //                 setState(() {
+                                  //                   isSelected[0] = val!;
+                                  //                   if (val == true) {
+                                  //                     isSelected[1] = false;
+                                  //                     isSelected[2] = false;
+                                  //                     isSelected[3] = false;
+                                  //                     isSelected[4] = false;
+                                  //                     isSelected[5] = false;
+                                  //                   }
+                                  //                 });
+                                  //               },
+                                  //               activeColor: Colors.green,
+                                  //               side: BorderSide(
+                                  //                   color: Colors.green,
+                                  //                   width: 2),
+                                  //             ),
+                                  //             Text('English')
+                                  //           ],
+                                  //         ),
+                                  //         Row(
+                                  //           children: [
+                                  //             Checkbox(
+                                  //               value: isSelected[1],
+                                  //               onChanged: (bool? val) {
+                                  //                 setState(() {
+                                  //                   isSelected[1] = val!;
+                                  //                   if (val == true) {
+                                  //                     isSelected[0] = false;
+                                  //                     isSelected[2] = false;
+                                  //                     isSelected[3] = false;
+                                  //                     isSelected[4] = false;
+                                  //                     isSelected[5] = false;
+                                  //                   }
+                                  //                 });
+                                  //               },
+                                  //               activeColor: Colors.green,
+                                  //               side: BorderSide(
+                                  //                   color: Colors.green,
+                                  //                   width: 2),
+                                  //             ),
+                                  //             Text('Spanish')
+                                  //           ],
+                                  //         ),
+                                  //         Row(
+                                  //           children: [
+                                  //             Checkbox(
+                                  //               value: isSelected[2],
+                                  //               onChanged: (bool? val) {
+                                  //                 setState(() {
+                                  //                   isSelected[2] = val!;
+                                  //                   if (val == true) {
+                                  //                     isSelected[1] = false;
+                                  //                     isSelected[0] = false;
+                                  //                     isSelected[3] = false;
+                                  //                     isSelected[4] = false;
+                                  //                     isSelected[5] = false;
+                                  //                   }
+                                  //                 });
+                                  //               },
+                                  //               activeColor: Colors.green,
+                                  //               side: BorderSide(
+                                  //                   color: Colors.green,
+                                  //                   width: 2),
+                                  //             ),
+                                  //             Text('French')
+                                  //           ],
+                                  //         ),
+                                  //         Row(
+                                  //           children: [
+                                  //             Checkbox(
+                                  //               activeColor: Colors.green,
+                                  //               side: BorderSide(
+                                  //                   color: Colors.green,
+                                  //                   width: 2),
+                                  //               value: isSelected[3],
+                                  //               onChanged: (bool? val) {
+                                  //                 setState(() {
+                                  //                   isSelected[3] = val!;
+                                  //                   if (val == true) {
+                                  //                     isSelected[1] = false;
+                                  //                     isSelected[2] = false;
+                                  //                     isSelected[0] = false;
+                                  //                     isSelected[4] = false;
+                                  //                     isSelected[5] = false;
+                                  //                   }
+                                  //                 });
+                                  //               },
+                                  //             ),
+                                  //             Text('Hindi')
+                                  //           ],
+                                  //         ),
+                                  //         Row(
+                                  //           children: [
+                                  //             Checkbox(
+                                  //               activeColor: Colors.green,
+                                  //               side: BorderSide(
+                                  //                   color: Colors.green,
+                                  //                   width: 2),
+                                  //               value: isSelected[4],
+                                  //               onChanged: (bool? val) {
+                                  //                 setState(() {
+                                  //                   isSelected[4] = val!;
+                                  //                   if (val == true) {
+                                  //                     isSelected[1] = false;
+                                  //                     isSelected[2] = false;
+                                  //                     isSelected[3] = false;
+                                  //                     isSelected[0] = false;
+                                  //                     isSelected[5] = false;
+                                  //                   }
+                                  //                 });
+                                  //               },
+                                  //             ),
+                                  //             Text('Portuguese')
+                                  //           ],
+                                  //         ),
+                                  //         Row(
+                                  //           children: [
+                                  //             Checkbox(
+                                  //               activeColor: Colors.green,
+                                  //               side: BorderSide(
+                                  //                   color: Colors.green,
+                                  //                   width: 2),
+                                  //               value: isSelected[5],
+                                  //               onChanged: (bool? val) {
+                                  //                 setState(() {
+                                  //                   isSelected[5] = val!;
+                                  //                   if (val == true) {
+                                  //                     isSelected[1] = false;
+                                  //                     isSelected[2] = false;
+                                  //                     isSelected[3] = false;
+                                  //                     isSelected[4] = false;
+                                  //                     isSelected[0] = false;
+                                  //                   }
+                                  //                 });
+                                  //               },
+                                  //             ),
+                                  //             Text('Arabic')
+                                  //           ],
+                                  //         ),
+                                  //       ],
+                                  //     ),
+                                  // ),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height *
@@ -454,7 +451,6 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                           ],
                                         ),
                                       ],
->>>>>>> f1d4d20c959f4d90f88983652f4c95829cd61c63
                                     ),
                                   ),
                                   SizedBox(
@@ -575,3 +571,6 @@ class _StartUpScreenState extends State<StartUpScreen> {
     );
   }
 }
+
+
+

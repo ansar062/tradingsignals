@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tradingsignals/Widgets/networkImage.dart';
 
 class TipsScreen extends StatefulWidget {
   const TipsScreen({super.key});
@@ -58,24 +59,7 @@ Widget tipsAndShop(BuildContext context, String url, List tags, bool isShop) {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                child:Image.network(
-                        url,
-                        fit: BoxFit.cover,
-                        loadingBuilder: (context, child, loadingPrograss) {
-                          if (loadingPrograss == null) return child;
-                          return Center(
-                            child: CircularProgressIndicator(
-                              value: loadingPrograss.expectedTotalBytes != null
-                              ? loadingPrograss.cumulativeBytesLoaded / loadingPrograss.expectedTotalBytes!
-                              : null
-                              ,
-                            ),
-                          );
-                        },
-                      )
-              ),
+              networkImageWidget(context, url, BoxFit.cover),
               isShop
                   ? Positioned(
                       bottom: 10,

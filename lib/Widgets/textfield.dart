@@ -20,16 +20,16 @@ class TextFieldInput extends StatelessWidget {
       borderSide: Divider.createBorderSide(context, color: Colors.grey),
     );
 
-    return CupertinoTextField(
+    return TextField(
       controller: textEditingController,
       
-      decoration: BoxDecoration(
-        //hintText: hintText,
+      decoration: InputDecoration(
+        hintText: hintText,
         
-        //focusedBorder: inputBorder,
-        // enabledBorder: inputBorder,
-        // filled: false,
-        // contentPadding: const EdgeInsets.all(8),
+        focusedBorder: inputBorder,
+        enabledBorder: inputBorder,
+        filled: false,
+        contentPadding: const EdgeInsets.all(8),
       ),
       keyboardType: textInputType,
       obscureText: isPass,
