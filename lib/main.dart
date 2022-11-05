@@ -1,11 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:tradingsignals/Screens/homeScreen.dart';
-import 'package:tradingsignals/Screens/shopScreen.dart';
-import 'package:tradingsignals/Screens/signalsScreen.dart';
-import 'package:tradingsignals/Screens/tipsScreen.dart';
+
+
 import 'package:flutter/material.dart';
+import 'package:tradingsignals/Screens/homeScreen.dart';
 import 'package:tradingsignals/Screens/startupscreen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,10 +32,8 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    // return CupertinoApp(
-    //   title: 'Flutter Demo',
-      
-    //   home:SignalsScreen(),
+
+
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
