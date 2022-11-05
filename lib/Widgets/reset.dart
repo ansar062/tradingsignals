@@ -27,7 +27,8 @@ Widget reseting(
             ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                 onPressed: () {},
-                child: Text(  'reset'.tr() ,style: TextStyle(overflow: TextOverflow.ellipsis),    )
+                child: Text(  'reset'.tr() , style: TextStyle(overflow: TextOverflow.ellipsis),    
+                )
                 
                 
                 ),

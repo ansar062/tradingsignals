@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 
 import 'package:flutter/material.dart';
-
+import 'package:tradingsignals/Screens/homeScreen.dart';
 import 'package:tradingsignals/Screens/startupscreen.dart';
 
 
@@ -23,7 +23,7 @@ void main() async {
         Locale('hi',''),
         Locale('pt','')
       ],
-      path: 'assets/translations/',
+      path: 'assets/translations',
       
       child: const MyApp()));
 }
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'Trading Signals',
-      home: StartUpScreen(),
+      home: HomeScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
