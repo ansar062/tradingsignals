@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:tradingsignals/Screens/homeScreen.dart';
+import 'package:tradingsignals/Screens/pageview.dart';
 import 'package:tradingsignals/Screens/shopScreen.dart';
 import 'package:tradingsignals/Screens/signalsScreen.dart';
+import 'package:tradingsignals/Screens/strcutureScreen.dart';
 import 'package:tradingsignals/Screens/tipsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Screens/startupscreen.dart';
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'Trading Signals',
-      home: HomeScreen(),
+      home: StrcutureScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

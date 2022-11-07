@@ -192,8 +192,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: 10,
                       ),
-                      planstoSubcribe(
-                          context, screenHeight, screenWidth),
+                      planstoSubcribe(context, screenHeight, screenWidth),
                       SizedBox(
                         height: 10,
                       ),
@@ -583,8 +582,8 @@ Widget othermethods(BuildContext context, double screenHeight,
   );
 }
 
-Widget planstoSubcribe(BuildContext context, double screenHeight,
-    double screenWidth) {
+Widget planstoSubcribe(
+    BuildContext context, double screenHeight, double screenWidth) {
   return Container(
     decoration: BoxDecoration(
         color: Color.fromARGB(255, 218, 218, 218),
@@ -649,11 +648,14 @@ Widget planstoSubcribe(BuildContext context, double screenHeight,
                 children: [
                   Column(
                     children: [
-                      Text("1 weekly \$8.2", style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),),
-                            SizedBox(
-                              height: 10,
-                            ),
+                      Text(
+                        "1 weekly \$8.2",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
                       CustomButton(
                         func: () {},
                         text: 'SUBSCRIBE',
@@ -665,11 +667,14 @@ Widget planstoSubcribe(BuildContext context, double screenHeight,
                   ),
                   Column(
                     children: [
-                      Text("1 weekly \$8.2 👑", style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),),
-                            SizedBox(
-                              height: 10,
-                            ),
+                      Text(
+                        "1 weekly \$8.2 👑",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
                       CustomButton(
                         func: () {},
                         text: 'SUBSCRIBE',
