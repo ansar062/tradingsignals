@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 
-
 import 'package:flutter/material.dart';
 import 'package:tradingsignals/Screens/homeScreen.dart';
 import 'package:tradingsignals/Screens/startupscreen.dart';
@@ -31,6 +30,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
+  
   Widget build(BuildContext context) {
 
 
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'Trading Signals',
-      home: HomeScreen(),
+      home: StrcutureScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
