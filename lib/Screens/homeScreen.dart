@@ -448,7 +448,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'Have any concerns? please contact us via Email or telegram below. Note that we will only respond to relevent questions, business queries or ideas..'),
                       ),
                     ),
-                    contactus(context, true),
+                    ContactUs(isNamed: true, path1: 'assets/logo.png', path2: 'assets/telegram.png', )
                   ],
                 ),
               ),

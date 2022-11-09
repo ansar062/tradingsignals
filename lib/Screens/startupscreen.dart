@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:tradingsignals/Screens/strcutureScreen.dart';
 import 'package:tradingsignals/Widgets/contactus.dart';
 import 'package:tradingsignals/Widgets/loginwidget.dart';
 import 'package:tradingsignals/Widgets/reset.dart';
@@ -121,7 +122,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   Divider(),
                                   Container(
                                     child: Text(
-                                        'Forex Cryptocurrency Commondity and Indices Signals app please login to continue'.tr()),
+                                        'Forex Cryptocurrency Commondity and Indices Signals app please login to continue'
+                                            .tr()),
                                   ),
                                   SizedBox(
                                     height: 30,
@@ -380,10 +382,8 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                                   width: 2),
                                               value: isSelected[3],
                                               onChanged: (bool? val) {
-                                                context
-                                                      .setLocale(Locale('hi'));
+                                                context.setLocale(Locale('hi'));
                                                 setState(() {
-
                                                   isSelected[3] = val!;
                                                   if (val == true) {
                                                     isSelected[1] = false;
@@ -516,7 +516,6 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   Center(
                                     child: Container(
                                       child: Text(
-                                        
                                         'failing_to_login_contact_us_now'.tr(),
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
@@ -526,33 +525,47 @@ class _StartUpScreenState extends State<StartUpScreen> {
                                   SizedBox(
                                     height: 20,
                                   ),
-                                 contactus(context, false),
+                                  ContactUs(
+                                      isNamed: false,
+                                      path1: 'assets/logo.png',
+                                      path2: 'assets/telegram.png'),
                                   //
                                   SizedBox(
                                     height: 20,
                                   ),
                                   Container(
-                                    child: Text('installation_and_login_guide'.tr()),
+                                    child: Text(
+                                        'installation_and_login_guide'.tr()),
                                   ),
                                   SizedBox(
                                     height: 20,
                                   ),
                                   Center(
-                                      child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.05,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.2,
-                                    decoration: BoxDecoration(
-                                        color: Colors.blue,
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
-                                    child: Center(
-                                        child: Text(
-                                      "watch".tr(),
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 18),
-                                    )),
+                                      child: InkWell(
+                                    onTap: () {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  StrcutureScreen()));
+                                    },
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.2,
+                                      decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      child: Center(
+                                          child: Text(
+                                        "watch".tr(),
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 18),
+                                      )),
+                                    ),
                                   )),
                                 ],
                               ),
@@ -571,6 +584,3 @@ class _StartUpScreenState extends State<StartUpScreen> {
     );
   }
 }
-
-
-
