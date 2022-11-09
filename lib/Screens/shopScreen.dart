@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tradingsignals/Screens/commonScreen.dart';
 import 'package:tradingsignals/Screens/tipsScreen.dart';
 
 class ShopScreen extends StatefulWidget {
@@ -24,6 +25,15 @@ class _ShopScreenState extends State<ShopScreen> {
     'java'
   ];
   bool isShop = true;
+  show() async {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CommonScreen(
+                  details: 'details', title: 'title', imageUrl: 'imageUrl')));
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +42,8 @@ class _ShopScreenState extends State<ShopScreen> {
             itemCount: 5,
             itemBuilder: (context, index) {
               return Container(
-                padding: EdgeInsets.all(5),
-                  child: tipsAndShop(context, image, tags, isShop));
+                  padding: EdgeInsets.all(5),
+                  child: tipsAndShop(context, image, tags, isShop, show));
             }),
       ),
     );

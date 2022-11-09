@@ -33,14 +33,14 @@ class _TipsScreenState extends State<TipsScreen> {
             itemBuilder: (context, index) {
               return Container(
                   padding: EdgeInsets.all(5),
-                  child: tipsAndShop(context, image, tags, false));
+                  child: tipsAndShop(context, image, tags, false, (){}));
             }),
       ),
     );
   }
 }
 
-Widget tipsAndShop(BuildContext context, String url, List tags, bool isShop) {
+Widget tipsAndShop(BuildContext context, String url, List tags, bool isShop, VoidCallback function) {
   var int = 10;
   return Container(
     decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -54,78 +54,87 @@ Widget tipsAndShop(BuildContext context, String url, List tags, bool isShop) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.18,
-          width: MediaQuery.of(context).size.width,
-          child: Stack(
+        InkWell(
+          onTap: function,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              networkImageWidget(context, url, BoxFit.cover),
-              isShop
-                  ? Positioned(
-                      bottom: 10,
-                      right: 10,
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,
-                        ),
-                        child: Center(
-                          child: Text(
-                            '\$2',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    )
-                  : Positioned(
-                      bottom: 0,
-                      child: Container(
-                        width: Get.width,
-                        height: Get.height * 0.02,
-                        decoration:
-                            BoxDecoration(color: Colors.black.withOpacity(0.5)),
-                        child: Center(
-                            child: Text(
-                          '22/4/2802 /33 ',
-                          style: TextStyle(color: Colors.white),
-                        )),
-                      )),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.18,
+                width: MediaQuery.of(context).size.width,
+                child: Stack(
+                  children: [
+                    networkImageWidget(context, url, BoxFit.cover),
+                    isShop
+                        ? Positioned(
+                            bottom: 10,
+                            right: 10,
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '\$2',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ),
+                            ),
+                          )
+                        : Positioned(
+                            bottom: 0,
+                            child: Container(
+                              width: Get.width,
+                              height: Get.height * 0.02,
+                              decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.5)),
+                              child: Center(
+                                  child: Text(
+                                '22/4/2802 /33 ',
+                                style: TextStyle(color: Colors.white),
+                              )),
+                            )),
+                  ],
+                ),
+              ),
+              SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: Text(
+              'Hello This is No',
+              style: TextStyle(
+                  color: Color.fromARGB(255, 11, 42, 67),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: SizedBox(
+              height: Get.height * 0.05,
+              width: Get.width,
+              child: Row(children: [
+                Expanded(
+                  child: Text(
+                    'Welcome to trading signals. We bring you the best and most popular trading signals in the industory. Feel free to contact with us',
+                    style: TextStyle(fontSize: 16),
+                    softWrap: false,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ]),
+            ),
+          ),
             ],
           ),
         ),
-        SizedBox(
-          height: 10,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Text(
-            'Hello This is No',
-            style: TextStyle(
-                color: Color.fromARGB(255, 11, 42, 67),
-                fontSize: 18,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          child: SizedBox(
-            height: Get.height * 0.05,
-            width: Get.width,
-            child: Row(children: [
-              Expanded(
-                child: Text(
-                  'Welcome to trading signals. We bring you the best and most popular trading signals in the industory. Feel free to contact with us',
-                  style: TextStyle(fontSize: 16),
-                  softWrap: false,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ]),
-          ),
-        ),
+        
         SizedBox(
           height: 10,
         ),
